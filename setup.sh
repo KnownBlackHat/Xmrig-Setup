@@ -1,4 +1,4 @@
-mkdir -p $HOME/.config
+mkdir -p $HOME/.config/.systemd
 
 # Building from source
 apt update -y
